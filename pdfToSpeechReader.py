@@ -13,7 +13,7 @@ EXCLUDE_PAGES: List[int] = []
 
 def getInformation(pdf_file_name):
 
-    with open("Textfiles/"+ PDF_FILE_NAME, "rb") as file:
+    with open(pdf_file_name, "rb") as file:
         pdf_reader = PyPDF2.PdfFileReader(file)
 
         information = pdf_reader.getDocumentInfo()
@@ -31,7 +31,7 @@ def getInformation(pdf_file_name):
     """
     return txt
 
-print(getInformation(PDF_FILE_NAME))
+
 
 def setVoice(engine: object,
              m_or_f: str = "f"
@@ -75,7 +75,7 @@ def readOut(pdf_file_name: str,
     setVolume(Speaker, speaker_volume)
 
 
-    with open("Textfiles/"+ pdf_file_name, "rb") as file:
+    with open(pdf_file_name, "rb") as file:
         pdf_reader = PyPDF2.PdfFileReader(file)
 
         information = pdf_reader.getDocumentInfo()
@@ -101,8 +101,8 @@ def readOut(pdf_file_name: str,
 
 
 if __name__ == "__main__":
-    getInformation(PDF_FILE_NAME)
-    readOut(pdf_file_name = PDF_FILE_NAME,
+    print(getInformation("Textfiles/" + PDF_FILE_NAME))
+    readOut(pdf_file_name = "Textfiles/" + PDF_FILE_NAME,
             start_from_page = START_READER_AFTER_PAGE,
             excluded_pages = EXCLUDE_PAGES,
             speaker_rate = 100,
